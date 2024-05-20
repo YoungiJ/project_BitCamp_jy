@@ -16,7 +16,7 @@ import java.util.Map.Entry;
 //name넣는 걸 따로 만들어서 add할 때 쏙넣기
 public class SmartPhone2 {
 
-	Map<String,Addr> hashmap;
+	Map<String,Addr2> hashmap;
 	String name;
 	
 	int numOfCount = 0;
@@ -28,7 +28,7 @@ public class SmartPhone2 {
 		in = new Scanner(System.in);
 	}
 
-	public Addr inputContactData() {
+	public Addr2 inputContactData() {
 
 		System.out.print("전화번호:");
 		String phoneNumber = in.nextLine();
@@ -39,7 +39,7 @@ public class SmartPhone2 {
 		System.out.print("그룹(친구/가족) :");
 		String group = in.nextLine();
 
-		return new Addr(phoneNumber, email, address, group);
+		return new Addr2(phoneNumber, email, address, group);
 	}
 	
 	
@@ -50,7 +50,7 @@ public class SmartPhone2 {
 		return name;	
 	}
 
-	public void addAddr(Addr addr) {
+	public void addAddr(Addr2 addr) {
 		hashmap.put(inputName(),addr);//key
 //		System.out.println(hashmap.get(list.get(numOfCount)));
 
@@ -58,7 +58,7 @@ public class SmartPhone2 {
 		System.out.println(">>> 데이터가 저장되었습니다.(" + numOfCount + ")");
 	}
 
-	public void printAddr(Addr addr) {
+	public void printAddr(Addr2 addr) {
 		System.out.println("이름"+name);
 		System.out.println("전화번호:" + addr.getPhoneNumber());
 		System.out.println("이메일 :" + addr.getEMail());
@@ -68,7 +68,7 @@ public class SmartPhone2 {
 	}
 
     public void printAllAddr() {
-        for (Addr value : hashmap.values()) {
+        for (Addr2 value : hashmap.values()) {
             printAddr(value);
         }
     	//key랑 value를 출력-> entrySet 생성
@@ -115,7 +115,7 @@ public class SmartPhone2 {
 //        }
     
 	
-    public void editAddr(String name, Addr newContact) {
+    public void editAddr(String name, Addr2 newContact) {
     	hashmap.remove(name);
     	hashmap.put(inputName(),inputContactData());
     }

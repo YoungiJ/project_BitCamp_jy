@@ -3,7 +3,7 @@ package HashMap_Project;
 //아예 list를 하나 생성해야함
 import java.util.Scanner;
 
-public class SmartPhoneMain {
+public class SmartPhoneMain2 {
 
 	public static void main(String[] args) {
 

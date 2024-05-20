@@ -1,12 +1,12 @@
 package HashMap_Project;
 
-public class Addr {
+public class Addr2 {
 	private String phoneNumber;
 	private String email;
 	private String address;
 	private String group;
 
-	public Addr(String phoneNumber, String eMail, String address,String group) {
+	public Addr2(String phoneNumber, String eMail, String address,String group) {
 		this.phoneNumber = phoneNumber;
 		this.email = eMail;
 		this.address = address;
