@@ -16,7 +16,6 @@ public class ReadEx {
 	//파일 생성-> 데이터 있어도 기존 데이터를 없애고 덮어씌움
 		Reader reader=null;
 		
-		
 		reader=new FileReader("C:/Picture/data2.txt");
 		while(true) {
 			int data=reader.read();//data<- 4byte

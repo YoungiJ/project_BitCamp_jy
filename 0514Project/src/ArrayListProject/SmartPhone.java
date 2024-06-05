@@ -1,27 +1,18 @@
 package ArrayListProject;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-//크기가 자동적으로 늘어났다가 
-
-
-
 public class SmartPhone {
+	Scanner in = new Scanner(System.in);
+	int numCount=0;
 
-	//Addr[] addrs;
-	List<Addr> arrlist;
+	//arraylist 구현
+	List<Addr> list=new LinkedList<Addr>();
 
-	int numOfCount = 0;
-	Scanner in;
-
-	public SmartPhone() {
-		//addrs = new Addr[10];
-		arrlist=new ArrayList<>();
-		in = new Scanner(System.in);
-	}
-
+	// input
 	public Addr inputContactData() {
 		System.out.print("이름 :");
 		String name = in.nextLine();
@@ -33,17 +24,50 @@ public class SmartPhone {
 		String address = in.nextLine();
 		System.out.print("그룹(친구/가족) :");
 		String group = in.nextLine();
-
-		return new Addr(name, phoneNumber, email, address, group);
+		
+		return new Addr(name, phoneNumber, email, address, group) ;
+		
 	}
-
+	
+	// add
 	public void addAddr(Addr addr) {
-		//addrs[numOfCount] = addr;
-		arrlist.add(addr);
-		++numOfCount;
-		System.out.println(">>> 데이터가 저장되었습니다.(" + numOfCount + ")");
+		list.add(addr);
+		numCount++;
+		System.out.println(">>> 데이터가 저장되었습니다.");
+		
 	}
-
+	
+	//search
+	public void searchAddr(String name) {
+		//list에서 똑같은 이름찾기
+		for(Addr li:list) {
+			if(li.getName().equals(name)){
+				printAddr(li);
+			}
+		}
+	}
+	//delete 
+	public void deleteAddr(String name) {
+		for(Addr li:list) {
+			if(li.getName().equals(name)){
+				list.remove(li);
+				numCount--;
+			}
+		}
+	}
+	
+	
+	//edit
+	public void editAddr(String name, Addr addr) {
+		for(int i=0;i<numCount;i++) {
+			if(list.get(i).getName().equals(name)){
+				list.set(i, addr);
+			}
+		}
+		
+	}
+	
+	//print
 	public void printAddr(Addr addr) {
 		System.out.println("이름 :" + addr.getName());
 		System.out.println("전화번호:" + addr.getPhoneNumber());
@@ -53,70 +77,11 @@ public class SmartPhone {
 		System.out.println("==================================");
 	}
 
+	//print All
 	public void printAllAddr() {
-		for (int i = 0; i < numOfCount; i++) {
-			//printAddr(addrs[i]);
-			printAddr(arrlist.get(i));
-		}
-	}
-
-	public void searchAddr(String name) {// 이름을 입력받음
-		for (int i = 0; i < numOfCount; i++) {
-			//Addr addr = addrs[i];
-			Addr addr = arrlist.get(i);
-			
-//			if (addr.getName().equals(name)) {
-//				printAddr(addr);
-//				return;
-//			}
-			
-			if(addr.getName().contains(name)==true) {
-				printAddr(addr);
-				return;
+		for(Addr li:list) {
+			printAddr(li);
 			}
-		}
-		System.out.println("검색 결과가 없습니다.");
-	}
-
-	public void deleteAddr(String name) {
-		for (int i = 0; i < numOfCount; i++) {
-			//Addr addr = addrs[i];
-			Addr addr = arrlist.get(i);
-//			if (addr.getName().equals(name)) {
-//				for (int j = i; j < numOfCount; j++) {
-//					addrs[j] = addrs[j + 1];
-//				}
-//				numOfCount--;
-//				return;
-//			}
-			if(addr.getName().contains(name)==true) {
-				//delete는 객체 자체를 삭제
-				arrlist.remove(addr);
-				numOfCount--;
-
-				return;
-			}
-			
-		}
-		System.out.println("검색 결과가 없습니다.");
-	}
-
-	public void editAddr(String name, Addr newContact) {
-		for (int i = 0; i < numOfCount; i++) {
-			Addr addr = arrlist.get(i);
-
-//			if (addrs[i].getName().equals(name)) {
-//				addrs[i] = newContact;
-//				return;
-//			}
-			if(addr.getName().contains(name)==true) {
-				arrlist.set(i,newContact);
-				return;
-			}
-			
-		}
 		
-		
-		System.out.println("검색 결과가 없습니다.");
 	}
 }
