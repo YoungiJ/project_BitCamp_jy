@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입창</title>
+<style>
+	h1 {
+		text-align: center;
+	}
+	td#first {
+		width: 200px;
+	}
+	td#second {
+		width: 400px;
+	}
+	p {
+		text-align: right; /* 'align'을 'text-align'으로 변경 */
+	}
+	table {
+		margin: 0 auto; /* 'align: center' 대신 중앙 정렬을 위해 margin 사용 */
+	}
+</style>
+</head>
+<body>
+
+<form method="post" action='member.jsp'>
+	<h1>회원가입창</h1>
+	<table>
+	<tr>
+		<td id="first"><p>아이디</p></td> <!-- <p> 태그를 닫음 -->
+		<td id="second"><input type="text" name="id"/></td> <!-- <p> 태그를 제거 -->
+	</tr>
+	<tr>
+		<td id="first"><p>비밀번호</p></td> <!-- <p> 태그를 닫음 -->
+		<td id="second"><input type="password" name="pwd"/></td> <!-- <p> 태그를 제거 -->
+	</tr>
+	<tr>
+		<td id="first"><p>이름</p></td> <!-- <p> 태그를 닫음 -->
+		<td id="second"><input type="text" name="name"/></td> <!-- <p> 태그를 제거 -->
+	</tr>
+	<tr>
+		<td id="first"><p>이메일</p></td> <!-- <p> 태그를 닫음 -->
+		<td id="second"><input type="text" name="email"/></td> <!-- <p> 태그를 제거 -->
+	</tr>
+	<tr>
+		<td id="first"><p>&nbsp;</p></td> <!-- <p> 태그를 닫음 -->
+		<td id="second">
+			<input type="submit" value="가입하기"/>
+			<input type="reset" value="다시입력"/>
+		</td>
+	</tr>
+	</table>
+</form>
+</body>
+</html>
