@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- html에서 http requet할때 utf8로 보냄 -->
+<meta charset="UTF-8">
+<title>로그인창</title>
+</head>
+<body>
+<!-- 
+name->  form tag가 여러개있을 때 이를 구분하는 역할-> js에서 태그 접근할 때 자주 사용
+login이라는 html로 넘어가서 요청을 수행
+데이터를 전송할 서블릿을 지정함 -->
+<form name="frmLogin" method="post" action="login99" encType="UTF-8">
+	<!-- 태그에다가 name을 적어줘야 server에서 매핑해서 데이터를 가져올 수 있음 -->
+
+	아이디:<input type="text" name="user_id"><br>
+	비밀번호:<input type="password" name="user_pw"><br>
+	
+	<!-- 타입을 서브밋으로 적으면 form을 get방식으로 서버에 넘겨줌, value는 버튼 안의 글자 -->
+	<input type="submit" value="로그인">
+	<!--reset 버튼을 누르면 초기화-->
+	<input type="reset" value="다시입력">
+<!-- 	<input type="hidden" name="user_address" value="경기도 용인시"/>
+	<input type="hidden" name="user_email" value="hjy020714@gmail.com"/>
+	<input type="hidden" name="user_hp" value="010-4804-3206"/> -->
+
+</form>
+</body>
+</html>
